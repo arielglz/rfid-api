@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const MONGODB_endpoint = process.env.MONGODB_URI || 'mongodb+srv://rfid-api:rfid-api@acs-db.g00o65u.mongodb.net/?retryWrites=true&w=majority';
 
 app.use(express.json());
 app.use("/v1/role/", v1RoleRouter);
@@ -18,6 +19,6 @@ app.listen(PORT, () => {
 })
 
 mongoose
-    .connect(process.env.MONGODB_URI)
+    .connect(MONGODB_endpoint)
     .then(() => console.log('Connected to the MongoDB Atlas Cluster on CLOUD'))
     .catch((error) => console.error(error))
