@@ -2,7 +2,7 @@ FROM node:16-alpine
 
 COPY ./ /nodejs/
 
-WORKDIR /nodejs/src
+WORKDIR /nodejs/src/
 
 RUN npm install
 
